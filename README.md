@@ -1,4 +1,4 @@
-# Vault-on-S3
+# Hashicorp Vault Docker
 
 [![Docker](https://img.shields.io/badge/Docker-ready-blue)](https://www.docker.com/)
 [![Vault](https://img.shields.io/badge/HashiCorp-Vault-000000?logo=vault)](https://www.vaultproject.io/)
