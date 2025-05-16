@@ -12,6 +12,18 @@ VAULT_ADDR="http://127.0.0.1:8200"
 
 MAX_RETRIES=30
 
+docker run -d --name $CONTAINER_NAME \
+  -e AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \
+  -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \
+  -e VAULT_ADDR="$VAULT_ADDR" \
+  -v "$VAULT_CONFIG_FILE":/vault/config/vault.hcl \
+  -v "$HOST_DIR":/vault/data \
+  --cap-add=IPC_LOCK \
+  -p 8200:8200 \
+  $VAULT_IMAGE server
+
+# Specify either the config file to /vault/config/*.hcl or as the value of -config argument but not both at the same time
+
 echo "Waiting for Vault to become ready..."
 RETRY=0
 while [ $RETRY -lt $MAX_RETRIES ]; do
