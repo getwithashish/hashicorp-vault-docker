@@ -86,4 +86,66 @@ Deploy **HashiCorp Vault** backed by **Amazon S3** (or any S3-compatible endpoin
 * Can run locally for testing using Docker
 * Recommended to use a reverse proxy in front of the vault
 
+# IaC
+Pulumi is used as the IaC tool.
+Currently configured clouds to host using pulumi:
+- [Koyeb](https://www.koyeb.com/)
+
+The following environment variables should be configured in the envrionment where pulumi is being run:
+```
+# AWS Credentials
+AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
+AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
+
+# Vault Configuration
+VAULT_ADDR=http://0.0.0.0:8200
+VAULT_INIT_JSON=your_vault_init_json_here
+
+# Koyeb Token
+KOYEB_TOKEN=your_koyeb_token_here
+```
+
+#### Steps
+
+1. Install uv (if not already)
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. Create environment
+```bash
+uv venv
+
+# Activate the virtual environment
+# On Unix/macOS:
+source .venv/bin/activate
+# On Windows:
+.venv\Scripts\activate
+```
+
+3. Install Dependencies
+```bash
+uv pip install -e .
+```
+
+4. Login to Pulumi (if using Pulumi Cloud or custom backend)
+```bash
+pulumi login
+```
+
+5. Deploy the resources
+```bash
+pulumi up
+```
+
+6. Cleanup
+```bash
+pulumi destroy
+```
+
+7. Check logs
+```bash
+pulumi logs
+```
+
 ---
