@@ -1,0 +1,10 @@
+name: hashicorp-vault-docker-iac
+description: Pulumi program to deploy hashicorp vault docker to cloud
+runtime:
+  name: python
+  options:
+    toolchain: uv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: python

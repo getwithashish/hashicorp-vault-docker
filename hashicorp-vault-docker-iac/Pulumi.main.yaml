@@ -1,0 +1,13 @@
+encryptionsalt: v1:eJ8nE1CZ+7U=:v1:1zvYAlj0O5Ezinty:mELPiPojkbjCGEeyVy4Rdokn6OjMLw==
+config:
+  hashicorp_vault:github_repo: https://github.com/getwithashish/hashicorp-vault-docker
+  hashicorp_vault:github_repo_branch: main
+  hashicorp_vault:dockerfile_path: Dockerfile
+  koyeb:service_type: free
+  koyeb:service_instance_vcpu: "0.1"
+  koyeb:service_instance_memory: "512"
+  koyeb:service_instance_disk: "512"
+  koyeb:service_instance_port: 8200,http
+  koyeb:service_name: hashicorp-vault-docker-service
+  koyeb:resource_name: hashicorp-vault-docker-resource
+  hashicorp-vault-docker-iac:cloud_provider: koyeb
